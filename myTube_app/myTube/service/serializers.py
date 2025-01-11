@@ -111,6 +111,7 @@ class OneVideoSerializer(serializers.ModelSerializer):
             "dislikes",
             "description",
             "cats",
+            "views",
         )
 
 

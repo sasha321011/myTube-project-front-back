@@ -9,6 +9,7 @@
     <div class="meta">
       <p><strong>Автор:</strong> {{ video.author_name }}</p>
       <p><strong>Длительность:</strong> {{ video.length_time }} минут</p>
+            <p><strong>Просмотры:</strong> {{ video.views }}</p>
       <p><strong>Теги:</strong> {{ video.tags_name.map(tag => tag.tag_name).join(', ') }}</p>
       <p><strong>Лайки:</strong> {{ video.likes }}</p>
       <p><strong>Дизлайки:</strong> {{ video.dislikes }}</p>

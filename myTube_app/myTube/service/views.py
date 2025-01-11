@@ -117,6 +117,13 @@ class VideoDetailView(mixins.RetrieveModelMixin, GenericViewSet):
         return total_votes_vid
 
     def retrieve(self, request, *args, **kwargs):
+        video = self.get_object()
+        if request.user.is_authenticated:
+            video.views = F("views") + 1
+            video.save(update_fields=["views"])
+
+            video.refresh_from_db()
+
         video_slug = self.kwargs.get(self.lookup_field)
         cache_key = f"video_details:{video_slug}"
         cached_data = cache.get(cache_key)

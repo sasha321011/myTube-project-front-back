@@ -21,7 +21,7 @@ class Video(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     length_time = models.PositiveIntegerField(blank=True)
     pre_view = models.ImageField(blank=True, null=True)
-
+    views = models.PositiveIntegerField(default=0)
     the_video = models.FileField(
         validators=[FileExtensionValidator(allowed_extensions=["mp4", "avi"])],
         blank=True,
